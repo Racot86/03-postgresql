@@ -9,26 +9,26 @@ curl -X GET http://localhost:3000/api/contacts
 
 ### GET contact by ID
 ```bash
-curl -X GET http://localhost:3000/api/contacts/AeHIrLTr6JkxGE6SN-0Rw
+curl -X GET http://localhost:3000/api/contacts/1
 ```
 
 ### DELETE contact
 ```bash
-curl -X DELETE http://localhost:3000/api/contacts/AeHIrLTr6JkxGE6SN-0Rw
+curl -X DELETE http://localhost:3000/api/contacts/1
 ```
 
 ### POST new contact
 ```bash
 curl -X POST http://localhost:3000/api/contacts \
   -H "Content-Type: application/json" \
-  -d '{"name": "John Doe", "email": "john@example.com", "phone": "(123) 456-7890"}'
+  -d '{"name": "John Doe", "email": "john@example.com", "phone": "(123) 456-7890", "favorite": false}'
 ```
 
 ### PUT (update) contact
 ```bash
-curl -X PUT http://localhost:3000/api/contacts/AeHIrLTr6JkxGE6SN-0Rw \
+curl -X PUT http://localhost:3000/api/contacts/1 \
   -H "Content-Type: application/json" \
-  -d '{"name": "John Updated", "email": "updated@example.com"}'
+  -d '{"name": "John Updated", "email": "updated@example.com", "favorite": true}'
 ```
 
 ## Option 2: Using Postman
@@ -50,10 +50,10 @@ curl -X PUT http://localhost:3000/api/contacts/AeHIrLTr6JkxGE6SN-0Rw \
 GET http://localhost:3000/api/contacts
 
 ### Get contact by ID
-GET http://localhost:3000/api/contacts/AeHIrLTr6JkxGE6SN-0Rw
+GET http://localhost:3000/api/contacts/1
 
 ### Delete contact
-DELETE http://localhost:3000/api/contacts/AeHIrLTr6JkxGE6SN-0Rw
+DELETE http://localhost:3000/api/contacts/1
 
 ### Create new contact
 POST http://localhost:3000/api/contacts
@@ -62,16 +62,18 @@ Content-Type: application/json
 {
   "name": "John Doe",
   "email": "john@example.com",
-  "phone": "(123) 456-7890"
+  "phone": "(123) 456-7890",
+  "favorite": false
 }
 
 ### Update contact
-PUT http://localhost:3000/api/contacts/AeHIrLTr6JkxGE6SN-0Rw
+PUT http://localhost:3000/api/contacts/1
 Content-Type: application/json
 
 {
   "name": "John Updated",
-  "email": "updated@example.com"
+  "email": "updated@example.com",
+  "favorite": true
 }
 ```
 
@@ -79,5 +81,5 @@ Content-Type: application/json
 
 ## Important Notes:
 - Make sure your server is running (`npm start` or `node app.js`)
-- Replace `AeHIrLTr6JkxGE6SN-0Rw` with an actual contact ID from your database
+- Replace `1` with an actual contact ID from your database
 - The server runs on port 3000 as specified in your app.js file
